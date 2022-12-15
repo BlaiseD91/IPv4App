@@ -12,6 +12,9 @@ import java.util.Scanner;
 public class IPv4App {
 
     public static void main(String[] args) {
+        String[] reszek;
+        int[] ipv4 = new int[4];
+
         System.out.print("Adjon meg egy IPv4 címet: ");
 
         /*try {
@@ -23,16 +26,20 @@ public class IPv4App {
         }*/
         /*A try...catch szolgál a helyi kivételkezelésre, ami azt jelenti, hogy a try-hoz kapcsolódó blokkban bármely utasításnál valamilyen rendellenesség esetén a probléma elhárítása érdekében
         a folytatólagos feladatvégrehajtás a catch utáni programblokkra tevődik át.*/
-
+        
         Scanner bill = new Scanner(System.in);
         String ipv4Str = bill.nextLine();
         bill.close(); // scanner objektum zárása, ha már nem kell
 
-        String[] reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
+        reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
+        
+        for (int i = 0; i < reszek.length; i++) {
+            ipv4[i] = Integer.parseInt(reszek[i]);
+        }
 
         //teszt
-        for (String resz : reszek) {
-            System.out.println(resz);
+        for (int i : ipv4) {
+            System.out.println(i);
         }
         System.out.println(ipv4Str);
     }
