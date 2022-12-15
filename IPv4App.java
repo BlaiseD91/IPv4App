@@ -31,19 +31,28 @@ public class IPv4App {
         System.out.print("Adjon meg egy IPv4 címet: ");
 
         do{
-        String ipv4Str = bill.nextLine();
-        reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
-        if(reszek.length == 4){
-            for (int i = 0; i < reszek.length; i++) {
-                ipv4[i] = Integer.parseInt(reszek[i]);
+            String ipv4Str = bill.nextLine();
+            reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
+            if(reszek.length == 4){
+                for (int i = 0; i < reszek.length; i++) {
+                    try {
+                        ipv4[i] = Integer.parseInt(reszek[i]);
+                    }
+                    catch (Exception e) {
+                        System.out.print("\nA megadott IPv4 cím csak számot és '.' karaktert tartalmazhat. Add meg újra: ");
+                        break;
+                    }
+                    if(i==3){
+                        if((ipv4[0] > 0 && ipv4[0] < 256) && (ipv4[1] >= 0 && ipv4[1] < 256) && (ipv4[2] >= 0 && ipv4[2] < 256) && (ipv4[3] >= 0 && ipv4[3] < 256))
+                        megVan = true;
+                        else
+                        System.out.print("\nA megadott IPv4 cím hibás, add meg újra: ");
+                    }         
+                }
+                
             }
-            if((ipv4[0] > 0 && ipv4[0] < 256) && (ipv4[1] >= 0 && ipv4[1] < 256) && (ipv4[2] >= 0 && ipv4[2] < 256) && (ipv4[3] >= 0 && ipv4[3] < 256))
-                megVan = true;
             else
                 System.out.print("\nA megadott IPv4 cím hibás, add meg újra: ");
-        }
-        else
-            System.out.print("\nA megadott IPv4 cím hibás, add meg újra: ");
         }while(!megVan); //amíg nincs meg, addig bekérünk
         
         bill.close(); // scanner objektum zárása, ha már nem kell
