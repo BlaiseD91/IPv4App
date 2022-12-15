@@ -50,12 +50,6 @@ public class IPv4App {
             System.out.print("A megadott IPv4 cím E osztályú");
         else
             System.out.print("A megadott IPv4 cím F osztályú");
-
-        //teszt
-        for (int i : ipv4) {
-            System.out.println(i);
-        }
-        System.out.println(ipv4Str);
     }
     
 }
