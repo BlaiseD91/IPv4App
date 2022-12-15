@@ -32,10 +32,24 @@ public class IPv4App {
         bill.close(); // scanner objektum zárása, ha már nem kell
 
         reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
-        
+
         for (int i = 0; i < reszek.length; i++) {
             ipv4[i] = Integer.parseInt(reszek[i]);
         }
+
+        //Elemezzük a megadott IP címet
+        if (ipv4[0] < 128)
+            System.out.print("A megadott IPv4 cím A osztályú");
+        else if (ipv4[0] >= 128 && ipv4[0] < 192)
+            System.out.print("A megadott IPv4 cím B osztályú");
+        else if (ipv4[0] >= 192 && ipv4[0] < 224)
+            System.out.print("A megadott IPv4 cím C osztályú");
+        else if (ipv4[0] >= 224 && ipv4[0] < 240)
+            System.out.print("A megadott IPv4 cím D osztályú");
+        else if (ipv4[0] >= 240 && ipv4[0] < 248)
+            System.out.print("A megadott IPv4 cím E osztályú");
+        else
+            System.out.print("A megadott IPv4 cím F osztályú");
 
         //teszt
         for (int i : ipv4) {
