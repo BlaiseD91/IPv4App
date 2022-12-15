@@ -46,13 +46,13 @@ public class IPv4App {
                         if((ipv4[0] > 0 && ipv4[0] < 256) && (ipv4[1] >= 0 && ipv4[1] < 256) && (ipv4[2] >= 0 && ipv4[2] < 256) && (ipv4[3] >= 0 && ipv4[3] < 256))
                         megVan = true;
                         else
-                        System.out.print("\nA megadott IPv4 cím hibás, add meg újra: ");
+                        System.out.print("\nA megadott IPv4 nem megfelelő számot is tartalmaz, add meg újra: ");
                     }         
                 }
                 
             }
             else
-                System.out.print("\nA megadott IPv4 cím hibás, add meg újra: ");
+                System.out.print("\nA megadott IPv4 cím hossza nem megfelelő, add meg újra: ");
         }while(!megVan); //amíg nincs meg, addig bekérünk
         
         bill.close(); // scanner objektum zárása, ha már nem kell
