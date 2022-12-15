@@ -28,8 +28,12 @@ public class IPv4App {
         String ipv4Str = bill.nextLine();
         bill.close(); // scanner objektum zárása, ha már nem kell
 
+        String[] reszek = ipv4Str.split("\\.");// ha a szeparátorunk . => kénytelenek vagyunk \\. ként leírni a splitben
 
         //teszt
+        for (String resz : reszek) {
+            System.out.println(resz);
+        }
         System.out.println(ipv4Str);
     }
     
